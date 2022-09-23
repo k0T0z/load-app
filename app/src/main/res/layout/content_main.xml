@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/glide_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -39,7 +39,7 @@
             android:textSize="@dimen/default_text_size"/>
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/load_app_starter_radio_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -47,7 +47,7 @@
             android:textSize="@dimen/default_text_size"/>
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/retrofit_radio_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"

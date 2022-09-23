@@ -8,6 +8,11 @@
     <string name="notification_description">The Project 3 repository is downloaded</string>
     <string name="notification_button">See changes</string>
 
+    <string name="load_app_notification_channel_id" translatable="false">download_status_channel</string>
+    <string name="load_app_notification_channel_name" translatable="true">download_status</string>
+
+    <string name="download_finished">it\'s done</string>
+
     <string name="button_name">Click me</string>
     <string name="button_loading">We are loading </string>
     <string name="button_initial">Download </string>
@@ -18,5 +23,14 @@
     <string name="third_radio_button_title">Retrofit - Type-safe HTTP client for Android and Java By Square, Inc</string>
 
     <string name="error_state">Please select a file to download</string>
+
+    <string name="file_name_string">File name:</string>
+    <string name="status_string">Status:</string>
+
+    <string name="done_button">Done</string>
+
+<!--    <string name="glide_radio_button"></string>-->
+<!--    <string name="load_app_starter_radio_button"></string>-->
+<!--    <string name="retrofit_radio_button"></string>-->
 
 </resources>
