@@ -8,11 +8,16 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import androidx.core.content.withStyledAttributes
 import kotlin.properties.Delegates
 
 class LoadingButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
+    private var loadingCircleColor = 0
+    private var loadingBarColor = 0
+    private var canvasColor = 0
+
     private var widthSize = 0
     private var heightSize = 0
 
@@ -51,6 +56,11 @@ class LoadingButton @JvmOverloads constructor(
 
     init {
         isClickable = true
+        context.withStyledAttributes(attrs, R.styleable.LoadingButton) {
+            loadingBarColor = getColor(R.styleable.LoadingButton_loadingBarColor, 0)
+            loadingCircleColor = getColor(R.styleable.LoadingButton_loadingCircleColor, 0)
+            canvasColor = getColor(R.styleable.LoadingButton_canvasColor, 0)
+        }
     }
 
     override fun performClick(): Boolean {
@@ -81,15 +91,15 @@ class LoadingButton @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         canvas?.drawColor(
-            context.getColor(R.color.colorPrimary)
+            canvasColor
         )
-        paint.color = context.getColor(R.color.colorPrimaryDark)
+        paint.color = loadingBarColor
         rectF.loadingRect()
         canvas?.drawRect(
             rectF,
             paint
         )
-        paint.color = context.getColor(R.color.colorAccent)
+        paint.color = loadingCircleColor
         rectF.computeLTRBLoadingState()
         canvas?.drawArc(
             rectF, 0f, -1.0f * value * 360f, true, paint

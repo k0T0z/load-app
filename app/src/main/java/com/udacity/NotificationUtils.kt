@@ -31,6 +31,14 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
     )
 
+    val showIntent = Intent(applicationContext, DetailActivity::class.java)
+    val showPendingIntent: PendingIntent = PendingIntent.getBroadcast(
+        applicationContext,
+        0,
+        showIntent,
+        0
+    )
+
     val builder = NotificationCompat.Builder(
         applicationContext,
         applicationContext.getString(R.string.load_app_notification_channel_id)
@@ -39,6 +47,11 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         .setContentText(messageBody)
         .setContentIntent(notifyPendingIntent)
         .setAutoCancel(true)
+        .addAction(
+            R.drawable.ic_launcher_foreground,
+            applicationContext.getString(R.string.show),
+            showPendingIntent
+        )
 
     notify(NOTIFICATION_ID, builder.build())
 }

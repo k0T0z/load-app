@@ -13,6 +13,8 @@
 
     <string name="download_finished">it\'s done</string>
 
+    <string name="show">Show</string>
+
     <string name="button_name">Click me</string>
     <string name="button_loading">We are loading </string>
     <string name="button_initial">Download </string>
