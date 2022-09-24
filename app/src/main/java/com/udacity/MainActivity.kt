@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-
         custom_button.setOnClickListener {
             val notificationManager =
                 ContextCompat.getSystemService(
@@ -61,6 +59,11 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.load_app_notification_channel_id),
             getString(R.string.load_app_notification_channel_name)
         )
+    }
+
+    override fun onStart() {
+        super.onStart()
+        registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
     }
 
     override fun onStop() {
